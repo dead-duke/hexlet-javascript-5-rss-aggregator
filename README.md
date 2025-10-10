@@ -8,7 +8,9 @@
 
 The RSS Aggregator is a web application designed to collect and display content from various RSS feeds.
 
+Visit the [RSS Aggregator](https://hexlet-javascript-5-rss-aggregator.vercel.app) to test the functionality, such as adding feeds and viewing updated content.
+
 ## Requirements
 
-* Node.js
-* Make
+- Node.js
+- Make
