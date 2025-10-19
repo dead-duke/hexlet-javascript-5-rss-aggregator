@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RSS агрегатор</title>
+  <title data-translate="title">RSS агрегатор</title>
   <link rel="icon" type="image/png" sizes="any" href="./public/images/favicon.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -18,20 +18,21 @@
     <section class="container-fluid bg-dark p-4 py-5 p-md-5">
       <div class="row">
         <div class="col-md-10 col-lg-8 mx-auto text-white">
-          <h1 class="display-3 mb-0">RSS агрегатор</h1>
-          <p class="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
+          <h1 class="display-3 mb-0" data-translate="title">RSS агрегатор</h1>
+          <p class="lead" data-translate="description">Начните читать RSS сегодня! Это легко, это красиво.</p>
           <form action="" class="rss-form text-body">
             <div class="row flex-column gap-3 flex-sm-row gap-sm-0">
               <div class="col">
                 <div class="form-floating"><input id="url-input" autofocus required name="url" aria-label="url"
-                    class="form-control w-100" autocomplete="off" placeholder="Ссылка RSS" /> <label
-                    for="url-input">Ссылка RSS</label></div>
+                    class="form-control w-100" autocomplete="off" placeholder="Ссылка RSS" /> <label for="url-input"
+                    data-translate="rssInputLabel">Ссылка RSS</label></div>
               </div>
-              <div class="col-auto"><button type="submit" aria-label="add"
-                  class="h-100 btn btn-lg btn-primary px-sm-5">Добавить</button></div>
+              <div class="col-auto"><button type="submit" aria-label="add" class="h-100 btn btn-lg btn-primary px-sm-5"
+                  data-translate="addButton">Добавить</button></div>
             </div>
           </form>
-          <p class="mt-2 mb-0 text-secondary">Пример: https://lorem-rss.hexlet.app/feed</p>
+          <p class="mt-2 mb-0 text-secondary"><span data-translate="rssUrlExample">Пример</span>:
+            https://lorem-rss.hexlet.app/feed</p>
           <p class="feedback m-0 position-absolute small text-danger"></p>
         </div>
       </div>
