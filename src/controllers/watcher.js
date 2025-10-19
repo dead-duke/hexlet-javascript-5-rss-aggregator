@@ -1,8 +1,5 @@
 import onChange from 'on-change';
-import {
-  renderValidationError,
-  renderFeedbackMessage,
-} from '../views/render.js';
+import { renderValidationError, renderFeedbackMessage } from '../views/render.js';
 
 const watcher = (state, form, feedback) => {
   const watchedState = onChange(state, (path, value) => {
