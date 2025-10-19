@@ -9,7 +9,7 @@ const submitHandler = (state) => (event) => {
     .validate(url)
     .then(() => {
       state.feeds.push(url);
-      state.rssForm.feedbackMessage = 'RSS успешно загружен';
+      state.rssForm.feedbackMessage = 'success';
       state.rssForm.state = 'waitingForSubmission';
     })
     .catch((error) => {
