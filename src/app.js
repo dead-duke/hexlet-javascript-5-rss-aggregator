@@ -16,15 +16,19 @@ const app = () => {
   const state = {
     rssForm: {
       state: 'waitingForSubmission',
-      feedbackMessage: null,
+      error: null,
     },
-    feeds: [],
+    channels: [],
   };
 
   const form = document.querySelector('form.rss-form');
+  const input = form.querySelector('input#url-input');
   const feedback = document.querySelector('p.feedback');
+  const submitButton = form.querySelector('button[type="submit"]');
+  const postsContainer = document.querySelector('section.container-fluid.container-xxl div.posts');
+  const feedsContainer = document.querySelector('section.container-fluid.container-xxl div.feeds');
 
-  const stateWatcher = watcher(state, form, feedback);
+  const stateWatcher = watcher(state, input, submitButton, feedback, postsContainer, feedsContainer);
   form.addEventListener('submit', submitHandler(stateWatcher));
 };
 
