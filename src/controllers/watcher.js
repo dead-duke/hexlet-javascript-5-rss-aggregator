@@ -1,13 +1,16 @@
 import onChange from 'on-change';
-import { renderValidationError, renderFeedbackMessage } from '../views/render.js';
+import { renderFormControls, renderFeedbackMessage, renderPosts } from '../views/render.js';
 
-const watcher = (state, form, feedback) => {
+const watcher = (state, input, submitButton, feedback, postsContainer, feedsContainer) => {
   const watchedState = onChange(state, (path, value) => {
     if (path === 'rssForm.state') {
-      renderValidationError(form, value);
+      renderFormControls(input, submitButton, value);
     }
-    if (path === 'rssForm.feedbackMessage') {
+    if (path === 'rssForm.error') {
       renderFeedbackMessage(feedback, value);
+    }
+    if (path === 'channels') {
+      renderPosts(postsContainer, feedsContainer, ...value);
     }
   });
 
