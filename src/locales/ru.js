@@ -4,11 +4,17 @@ const ru = {
   rssInputLabel: 'Ссылка RSS',
   addButton: 'Добавить',
   rssUrlExample: 'Пример',
+  feeds: 'Фиды',
+  posts: 'Посты',
+  viewButton: 'Просмотр',
   rssSuccessfullySubmitted: 'RSS успешно загружен',
   error: {
     rssFieldRequired: 'Это поле обязательно для заполнения',
     rssUrlMustBeValid: 'Ссылка должна быть валидным URL',
     rssAlreadyAdded: 'RSS уже существует',
+    networkError: 'Ошибка сети',
+    parsingError: 'Ресурс не содержит валидный RSS',
+    unknownError: 'Неизвестная ошибка',
   },
 };
 
