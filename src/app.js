@@ -2,7 +2,7 @@ import watcher from './controllers/watcher.js';
 import submitHandler from './controllers/handlers.js';
 import i18nInstance from './i18n.js';
 
-const init = () => {
+const i18nInit = (i18nInstance) => {
   const elements = document.querySelectorAll('[data-translate]');
   for (const element of elements) {
     const key = element.dataset.translate;
@@ -11,7 +11,7 @@ const init = () => {
 };
 
 const app = () => {
-  init();
+  i18nInit(i18nInstance);
 
   const state = {
     rssForm: {
