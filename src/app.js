@@ -1,14 +1,7 @@
 import watcher from './controllers/watcher.js';
 import submitHandler from './controllers/handlers.js';
 import i18nInstance from './i18n.js';
-
-const i18nInit = (i18nInstance) => {
-  const elements = document.querySelectorAll('[data-translate]');
-  for (const element of elements) {
-    const key = element.dataset.translate;
-    element.innerText = i18nInstance.t(key);
-  }
-};
+import i18nInit from './views/i18nInit.js';
 
 const app = () => {
   i18nInit(i18nInstance);
