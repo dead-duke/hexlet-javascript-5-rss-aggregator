@@ -1,12 +1,12 @@
 import watcher from './controllers/watcher.js';
 import submitHandler from './controllers/handlers.js';
-import i18nextInstance from './i18n.js';
+import i18nInstance from './i18n.js';
 
 const init = () => {
   const elements = document.querySelectorAll('[data-translate]');
   for (const element of elements) {
     const key = element.dataset.translate;
-    element.innerText = i18nextInstance.t(key);
+    element.innerText = i18nInstance.t(key);
   }
 };
 

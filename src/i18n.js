@@ -12,5 +12,5 @@ i18next.init({
   },
 });
 
-const i18nextInstance = i18next;
-export default i18nextInstance;
+const i18nInstance = i18next;
+export default i18nInstance;
