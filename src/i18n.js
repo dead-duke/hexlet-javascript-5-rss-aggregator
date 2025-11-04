@@ -5,7 +5,7 @@ import ru from './locales/ru.js';
 i18next.init({
   lng: navigator.language,
   fallbackLng: 'en',
-  debug: true,
+  debug: false,
   resources: {
     en: { translation: en },
     ru: { translation: ru },
