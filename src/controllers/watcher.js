@@ -1,5 +1,5 @@
 import onChange from 'on-change';
-import { renderFormControls, renderFeedbackMessage, renderPosts } from '../views/render.js';
+import { renderFormControls, renderFeedbackMessage, renderPosts, renderNewPosts } from '../views/render.js';
 
 const watcher = (state, input, submitButton, feedback, postsContainer, feedsContainer) => {
   const watchedState = onChange(state, (path, value) => {
@@ -11,6 +11,9 @@ const watcher = (state, input, submitButton, feedback, postsContainer, feedsCont
     }
     if (path === 'channels') {
       renderPosts(postsContainer, feedsContainer, ...value);
+    }
+    if (path.endsWith('newPosts')) {
+      renderNewPosts(postsContainer, value);
     }
   });
 
