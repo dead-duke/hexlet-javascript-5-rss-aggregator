@@ -1,6 +1,7 @@
 import axios from 'axios';
 import addProxy from '../utils/proxyHelper.js';
 import xmlParser from '../models/xmlParser.js';
+import getCompositePostKey from '../utils/postKeyGenerator.js';
 
 const fetchRssChannel = (url) => {
   const separator = url.includes('?') ? '&' : '?';
@@ -13,4 +14,11 @@ const fetchRssChannel = (url) => {
   });
 };
 
-export { fetchRssChannel };
+const fetchNewPosts = (channel) =>
+  fetchRssChannel(channel.url).then((data) => {
+    const existingKeys = new Set(channel.posts.map(getCompositePostKey));
+    const newPosts = (data.posts || []).filter((post) => !existingKeys.has(getCompositePostKey(post)));
+    return newPosts;
+  });
+
+export { fetchRssChannel, fetchNewPosts };
