@@ -7,6 +7,8 @@ const ru = {
   feeds: 'Фиды',
   posts: 'Посты',
   viewButton: 'Просмотр',
+  channel: 'Канал',
+  updateFailed: 'не обновлен',
   rssSuccessfullySubmitted: 'RSS успешно загружен',
   error: {
     rssFieldRequired: 'Это поле обязательно для заполнения',

@@ -7,6 +7,8 @@ const en = {
   feeds: 'Feeds',
   posts: 'Posts',
   viewButton: 'View',
+  channel: 'Channel',
+  updateFailed: 'update failed',
   rssSuccessfullySubmitted: 'RSS successfully added',
   error: {
     rssFieldRequired: 'This field is required',
