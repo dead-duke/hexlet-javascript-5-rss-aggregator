@@ -1,7 +1,10 @@
 import watcher from './controllers/watcher.js';
 import submitHandler from './controllers/handlers.js';
+import updateRssPosts from './controllers/updateRssPosts.js';
 import i18nInstance from './i18n.js';
 import i18nInit from './views/i18nInit.js';
+
+const UPDATE_INTERVAL = 5000;
 
 const app = () => {
   i18nInit(i18nInstance);
@@ -23,6 +26,8 @@ const app = () => {
 
   const stateWatcher = watcher(state, input, submitButton, feedback, postsContainer, feedsContainer);
   form.addEventListener('submit', submitHandler(stateWatcher));
+
+  updateRssPosts(stateWatcher, UPDATE_INTERVAL);
 };
 
 export default app;
