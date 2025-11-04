@@ -25,6 +25,7 @@ const xmlParser = (xml) => {
       description,
     },
     posts,
+    newPosts: [],
   };
 };
 
