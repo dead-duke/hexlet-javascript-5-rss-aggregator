@@ -1,7 +1,6 @@
-import axios from 'axios';
 import urlSchema from '../models/validator.js';
-import xmlParser from '../models/xmlParser.js';
 import classifyError from '../utils/errorClassifier.js';
+import { fetchRssChannel } from '../services/rssService.js';
 
 const submitHandler = (state) => (event) => {
   event.preventDefault();
@@ -13,12 +12,9 @@ const submitHandler = (state) => (event) => {
     .then(() => {
       state.rssForm.error = null;
       state.rssForm.state = 'validatedAndSubmitted';
-      return axios.get(addProxy(url));
+      return fetchRssChannel(url);
     })
-    .then((response) => {
-      const xml = response.data.contents;
-      const data = xmlParser(xml);
-
+    .then((data) => {
       state.channels.unshift({ url, ...data });
       state.rssForm.error = 'noErrors';
       state.rssForm.state = 'waitingForSubmission';
