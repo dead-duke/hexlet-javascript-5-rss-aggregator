@@ -120,4 +120,9 @@ const renderPosts = (postsContainer, feedsContainer, { feed, posts }) => {
   addFeed(feedsList, feed);
 };
 
-export { renderFormControls, renderFeedbackMessage, renderPosts };
+const renderNewPosts = (postsContainer, posts) => {
+  const postsList = postsContainer.querySelector('ul.list-group');
+  addPosts(postsList, posts);
+};
+
+export { renderFormControls, renderFeedbackMessage, renderPosts, renderNewPosts };
