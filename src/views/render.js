@@ -72,6 +72,7 @@ const addPosts = (postsList, posts) => {
       'border-0',
       'border-end-0'
     );
+    item.dataset.postId = post.id;
 
     const link = document.createElement('a');
     link.classList.add('fw-bold');
