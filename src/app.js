@@ -34,6 +34,19 @@ const app = () => {
   const submitButton = form.querySelector('button[type="submit"]');
   const postsContainer = document.querySelector('section.container-fluid.container-xxl div.posts');
   const feedsContainer = document.querySelector('section.container-fluid.container-xxl div.feeds');
+  const modal = document.getElementById('modal');
+
+  const bootstrapModal = new bootstrap.Modal(document.getElementById('modal'));
+  const stateWatcher = watcher(
+    state,
+    input,
+    submitButton,
+    feedback,
+    postsContainer,
+    feedsContainer,
+    modal,
+    bootstrapModal
+  );
 
   const stateWatcher = watcher(state, input, submitButton, feedback, postsContainer, feedsContainer);
   form.addEventListener('submit', submitHandler(stateWatcher));
