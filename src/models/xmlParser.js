@@ -15,10 +15,11 @@ const xmlParser = (xml) => {
   const posts = Array.from(xmlDomTree.querySelectorAll('item'))
     .map((item) => {
       const title = item.querySelector('title').textContent;
+      const description = item.querySelector('description').textContent;
       const link = item.querySelector('link').textContent;
       const pubDate = item.querySelector('pubDate')?.textContent || Date.now();
       const id = generatePostId(link, pubDate);
-      return { id, title, link };
+      return { id, title, description, link };
     })
     .reverse();
 
