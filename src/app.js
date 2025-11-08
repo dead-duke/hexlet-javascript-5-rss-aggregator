@@ -1,5 +1,10 @@
 import watcher from './controllers/watcher.js';
-import submitHandler from './controllers/handlers.js';
+import {
+  submitHandler,
+  openModalHandler,
+  closeModalHandler,
+  openPostHandler,
+} from './controllers/handlers.js';
 import updateRssPosts from './controllers/updateRssPosts.js';
 import i18nInstance from './i18n.js';
 import i18nInit from './views/i18nInit.js';
@@ -48,8 +53,11 @@ const app = () => {
     bootstrapModal
   );
 
-  const stateWatcher = watcher(state, input, submitButton, feedback, postsContainer, feedsContainer);
   form.addEventListener('submit', submitHandler(stateWatcher));
+  postsContainer.addEventListener('click', openPostHandler(stateWatcher));
+  postsContainer.addEventListener('auxclick', openPostHandler(stateWatcher));
+  postsContainer.addEventListener('click', openModalHandler(stateWatcher));
+  modal.addEventListener('hidden.bs.modal', closeModalHandler(stateWatcher));
 
   updateRssPosts(stateWatcher, UPDATE_INTERVAL);
 };
