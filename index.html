@@ -14,6 +14,27 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
+
+  <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title" data-translate="modal.postTitle">Заголовок поста</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-break" id="modal-body" data-translate="modal.postContent">Содержание поста</div>
+        <div class="modal-footer">
+          <a class="btn btn-primary full-article" href="#" target="_blank" rel="noopener noreferrer"
+            data-translate="modal.readFull">
+            Читать полностью
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            data-translate="modal.close">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <main class="flex-grow-1">
     <section class="container-fluid bg-dark p-4 py-5 p-md-5">
       <div class="row">
