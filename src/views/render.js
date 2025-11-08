@@ -126,4 +126,24 @@ const renderNewPosts = (postsContainer, posts) => {
   addPosts(postsList, posts);
 };
 
-export { renderFormControls, renderFeedbackMessage, renderPosts, renderNewPosts };
+const fillModalContent = (modal, modalData) => {
+  modal.querySelector('.modal-title').textContent = modalData.title;
+  modal.querySelector('.modal-body').textContent = modalData.content;
+  modal.querySelector('.full-article').href = modalData.link;
+};
+
+const renderViewedPost = (postId) => {
+  const post = document.querySelector(`[data-post-id="${postId}"]`);
+  const link = post.querySelector('a');
+  link.classList.remove('fw-bold');
+  link.classList.add('fw-normal', 'link-secondary');
+};
+
+export {
+  renderFormControls,
+  renderFeedbackMessage,
+  renderPosts,
+  renderNewPosts,
+  fillModalContent,
+  renderViewedPost,
+};
