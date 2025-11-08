@@ -10,6 +10,12 @@ const ru = {
   channel: 'Канал',
   updateFailed: 'не обновлен',
   rssSuccessfullySubmitted: 'RSS успешно загружен',
+  modal: {
+    postTitle: 'Заголовок поста',
+    postContent: 'Содержание поста',
+    readFull: 'Читать полностью',
+    close: 'Закрыть',
+  },
   error: {
     rssFieldRequired: 'Это поле обязательно для заполнения',
     rssUrlMustBeValid: 'Ссылка должна быть валидным URL',

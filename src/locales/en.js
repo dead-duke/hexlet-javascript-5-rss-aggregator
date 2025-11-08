@@ -10,6 +10,12 @@ const en = {
   channel: 'Channel',
   updateFailed: 'update failed',
   rssSuccessfullySubmitted: 'RSS successfully added',
+  modal: {
+    postTitle: 'Post title',
+    postContent: 'Post content',
+    readFull: 'Read full article',
+    close: 'Close',
+  },
   error: {
     rssFieldRequired: 'This field is required',
     rssUrlMustBeValid: 'The URL must be a valid URL',
