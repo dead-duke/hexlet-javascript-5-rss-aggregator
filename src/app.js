@@ -15,6 +15,17 @@ const app = () => {
       error: null,
     },
     channels: [],
+    ui: {
+      lastMarkedPostId: null,
+      viewedPosts: new Set(),
+      modal: {
+        isOpen: false,
+        postId: null,
+        title: null,
+        content: null,
+        link: null,
+      },
+    },
   };
 
   const form = document.querySelector('form.rss-form');
