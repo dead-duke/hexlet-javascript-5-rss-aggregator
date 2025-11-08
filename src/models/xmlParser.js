@@ -1,4 +1,5 @@
 import ParsingError from '../errors/ParsingError.js';
+import generatePostId from '../utils/idGenerator.js';
 
 const xmlParser = (xml) => {
   const parser = new DOMParser();
@@ -15,7 +16,9 @@ const xmlParser = (xml) => {
     .map((item) => {
       const title = item.querySelector('title').textContent;
       const link = item.querySelector('link').textContent;
-      return { title, link };
+      const pubDate = item.querySelector('pubDate')?.textContent || Date.now();
+      const id = generatePostId(link, pubDate);
+      return { id, title, link };
     })
     .reverse();
 
