@@ -8,10 +8,7 @@ export default defineConfig([
     plugins: { js },
     extends: ['js/recommended'],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        bootstrap: 'readonly',
-      },
+      globals: { ...globals.browser },
     },
     rules: {
       semi: ['error', 'never'],
