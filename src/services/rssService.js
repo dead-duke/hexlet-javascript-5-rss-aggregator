@@ -11,8 +11,8 @@ const fetchRssChannel = (url) => {
   })
 }
 
-const fetchNewPosts = (channel) =>
-  fetchRssChannel(channel.url).then(data => {
+const fetchNewPosts = channel =>
+  fetchRssChannel(channel.url).then((data) => {
     const existingKeys = new Set(channel.posts.map(getCompositePostKey))
     const newPosts = (data.posts || []).filter(post => !existingKeys.has(getCompositePostKey(post)))
     return newPosts
