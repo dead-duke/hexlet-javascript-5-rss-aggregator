@@ -4,10 +4,7 @@ import xmlParser from '../models/xmlParser.js';
 import getCompositePostKey from '../utils/postKeyGenerator.js';
 
 const fetchRssChannel = (url) => {
-  const separator = url.includes('?') ? '&' : '?';
-  const uniqueUrl = `${url}${separator}_t=${Date.now()}`; // Для обхода кэширования Safari
-
-  return axios.get(addProxy(uniqueUrl)).then((response) => {
+  return axios.get(addProxy(url)).then((response) => {
     const xml = response.data.contents;
     const data = xmlParser(xml);
     return data;
