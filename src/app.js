@@ -43,6 +43,7 @@ const app = () => {
     modal: document.getElementById('modal'),
   };
 
+  /* global bootstrap */
   const bootstrapModal = new bootstrap.Modal(elements.modal);
   const stateWatcher = watcher(state, elements, bootstrapModal);
 
