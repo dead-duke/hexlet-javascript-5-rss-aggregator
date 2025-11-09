@@ -18,7 +18,8 @@ const updateRssPosts = (state, updateInterval) => {
             state.channels[index].posts.push(...newPosts)
             state.channels[index].newPosts.length = 0
           }
-        } else {
+        } 
+        else {
           const channel = i18nextInstance.t('channel')
           const channelUrl = state.channels[index].url
           const errorType = i18nextInstance.t(`error.${classifyError(result.reason)}`)

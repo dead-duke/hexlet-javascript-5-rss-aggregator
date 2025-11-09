@@ -29,7 +29,8 @@ const watcher = (state, elements, bootstrapModal) => {
       if (value.isOpen) {
         fillModalContent(elements.modal, value)
         bootstrapModal.show()
-      } else {
+      }
+      else {
         bootstrapModal.hide()
       }
     }

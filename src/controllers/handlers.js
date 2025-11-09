@@ -15,12 +15,12 @@ const submitHandler = state => event => {
       state.rssForm.state = 'validatedAndSubmitted'
       return fetchRssChannel(url)
     })
-    .then(data => {
+    .then((data) => {
       state.channels.unshift({ url, ...data })
       state.rssForm.error = 'noErrors'
       state.rssForm.state = 'waitingForSubmission'
     })
-    .catch(error => {
+    .catch((error) => {
       const errorType = classifyError(error)
       state.rssForm.error = errorType
       state.rssForm.state = 'invalid'
