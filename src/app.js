@@ -33,31 +33,24 @@ const app = () => {
     },
   };
 
-  const form = document.querySelector('form.rss-form');
-  const input = form.querySelector('input#url-input');
-  const feedback = document.querySelector('p.feedback');
-  const submitButton = form.querySelector('button[type="submit"]');
-  const postsContainer = document.querySelector('section.container-fluid.container-xxl div.posts');
-  const feedsContainer = document.querySelector('section.container-fluid.container-xxl div.feeds');
-  const modal = document.getElementById('modal');
+  const elements = {
+    form: document.querySelector('form.rss-form'),
+    input: document.querySelector('input#url-input'),
+    feedback: document.querySelector('p.feedback'),
+    submitButton: document.querySelector('button[type="submit"]'),
+    postsContainer: document.querySelector('section.container-fluid.container-xxl div.posts'),
+    feedsContainer: document.querySelector('section.container-fluid.container-xxl div.feeds'),
+    modal: document.getElementById('modal'),
+  };
 
-  const bootstrapModal = new bootstrap.Modal(document.getElementById('modal'));
-  const stateWatcher = watcher(
-    state,
-    input,
-    submitButton,
-    feedback,
-    postsContainer,
-    feedsContainer,
-    modal,
-    bootstrapModal
-  );
+  const bootstrapModal = new bootstrap.Modal(elements.modal);
+  const stateWatcher = watcher(state, elements, bootstrapModal);
 
-  form.addEventListener('submit', submitHandler(stateWatcher));
-  postsContainer.addEventListener('click', openPostHandler(stateWatcher));
-  postsContainer.addEventListener('auxclick', openPostHandler(stateWatcher));
-  postsContainer.addEventListener('click', openModalHandler(stateWatcher));
-  modal.addEventListener('hidden.bs.modal', closeModalHandler(stateWatcher));
+  elements.form.addEventListener('submit', submitHandler(stateWatcher));
+  elements.postsContainer.addEventListener('click', openPostHandler(stateWatcher));
+  elements.postsContainer.addEventListener('auxclick', openPostHandler(stateWatcher));
+  elements.postsContainer.addEventListener('click', openModalHandler(stateWatcher));
+  elements.modal.addEventListener('hidden.bs.modal', closeModalHandler(stateWatcher));
 
   updateRssPosts(stateWatcher, UPDATE_INTERVAL);
 };

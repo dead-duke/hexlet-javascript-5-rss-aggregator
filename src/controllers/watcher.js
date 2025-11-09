@@ -8,35 +8,26 @@ import {
   renderViewedPost,
 } from '../views/render.js';
 
-const watcher = (
-  state,
-  input,
-  submitButton,
-  feedback,
-  postsContainer,
-  feedsContainer,
-  modal,
-  bootstrapModal
-) => {
+const watcher = (state, elements, bootstrapModal) => {
   const watchedState = onChange(state, (path, value) => {
     if (path === 'rssForm.state') {
-      renderFormControls(input, submitButton, value);
+      renderFormControls(elements.input, elements.submitButton, value);
     }
     if (path === 'rssForm.error') {
-      renderFeedbackMessage(feedback, value);
+      renderFeedbackMessage(elements.feedback, value);
     }
     if (path === 'channels') {
-      renderPosts(postsContainer, feedsContainer, ...value);
+      renderPosts(elements.postsContainer, elements.feedsContainer, ...value);
     }
     if (path.endsWith('newPosts')) {
-      renderNewPosts(postsContainer, value);
+      renderNewPosts(elements.postsContainer, value);
     }
     if (path === 'ui.lastMarkedPostId') {
       renderViewedPost(value);
     }
     if (path === 'ui.modal') {
       if (value.isOpen) {
-        fillModalContent(modal, value);
+        fillModalContent(elements.modal, value);
         bootstrapModal.show();
       } else {
         bootstrapModal.hide();
