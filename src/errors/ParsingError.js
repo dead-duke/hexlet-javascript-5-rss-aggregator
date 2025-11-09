@@ -1,7 +1,7 @@
 class ParsingError extends Error {
   constructor(message) {
-    super(message);
-    this.name = 'ParsingError';
+    super(message)
+    this.name = 'ParsingError'
   }
 }
-export default ParsingError;
+export default ParsingError

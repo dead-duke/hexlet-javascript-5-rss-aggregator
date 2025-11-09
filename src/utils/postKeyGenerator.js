@@ -1,3 +1,3 @@
-const getCompositePostKey = ({ title, link }) => `${title}${link}`;
+const getCompositePostKey = ({ title, link }) => `${title}${link}`
 
-export default getCompositePostKey;
+export default getCompositePostKey

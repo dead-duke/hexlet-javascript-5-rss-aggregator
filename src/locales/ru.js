@@ -24,6 +24,6 @@ const ru = {
     parsingError: 'Ресурс не содержит валидный RSS',
     unknownError: 'Неизвестная ошибка',
   },
-};
+}
 
-export default ru;
+export default ru

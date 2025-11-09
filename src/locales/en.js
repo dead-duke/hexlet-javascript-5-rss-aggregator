@@ -24,6 +24,6 @@ const en = {
     parsingError: 'Resource does not contain a valid RSS feed',
     unknownError: 'Unknown error',
   },
-};
+}
 
-export default en;
+export default en
