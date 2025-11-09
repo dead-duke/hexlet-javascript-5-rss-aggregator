@@ -18,6 +18,7 @@ export default [
       '@stylistic/arrow-parens': 'off',
       '@stylistic/brace-style': ['error', 'stroustrup'],
       '@stylistic/quote-props': ['error', 'consistent-as-needed'],
+      '@stylistic/no-trailing-spaces': 'error',
     },
   },
 ]
