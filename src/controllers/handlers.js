@@ -3,7 +3,7 @@ import classifyError from '../utils/errorClassifier.js'
 import { fetchRssChannel } from '../services/rssService.js'
 import findPostById from '../utils/postFinder.js'
 
-const submitHandler = (state) => (event) => {
+const submitHandler = state => event => {
   event.preventDefault()
   const formData = new FormData(event.target)
   const url = formData.get('url').trim()
@@ -15,19 +15,19 @@ const submitHandler = (state) => (event) => {
       state.rssForm.state = 'validatedAndSubmitted'
       return fetchRssChannel(url)
     })
-    .then((data) => {
+    .then(data => {
       state.channels.unshift({ url, ...data })
       state.rssForm.error = 'noErrors'
       state.rssForm.state = 'waitingForSubmission'
     })
-    .catch((error) => {
+    .catch(error => {
       const errorType = classifyError(error)
       state.rssForm.error = errorType
       state.rssForm.state = 'invalid'
     })
 }
 
-const openModalHandler = (state) => (event) => {
+const openModalHandler = state => event => {
   const button = event.target.closest('.btn')
   if (button) {
     const postContainer = button.closest('.list-group-item')
@@ -44,7 +44,7 @@ const openModalHandler = (state) => (event) => {
   }
 }
 
-const closeModalHandler = (state) => () => {
+const closeModalHandler = state => () => {
   state.ui.modal = {
     isOpen: false,
     postId: null,
@@ -54,7 +54,7 @@ const closeModalHandler = (state) => () => {
   }
 }
 
-const openPostHandler = (state) => (event) => {
+const openPostHandler = state => event => {
   const isLink = event.target.closest('a')
   const isButton = event.target.closest('.btn') && event.type === 'click'
 
