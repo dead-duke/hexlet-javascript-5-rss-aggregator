@@ -13,5 +13,11 @@ export default defineConfig([
         bootstrap: 'readonly',
       },
     },
+    rules: {
+      semi: ['error', 'never'],
+      'arrow-parens': ['error', 'always'],
+      'brace-style': ['error', '1tbs'],
+      'comma-dangle': ['error', 'always-multiline'],
+    },
   },
 ]);
