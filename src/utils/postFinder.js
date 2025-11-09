@@ -1,11 +1,11 @@
 export const findPostById = (postId, channels) => {
   for (const channel of channels) {
-    const post = channel.posts.find(({ id }) => id === postId);
+    const post = channel.posts.find(({ id }) => id === postId)
     if (post) {
-      return post;
+      return post
     }
   }
-  return null;
-};
+  return null
+}
 
-export default findPostById;
+export default findPostById

@@ -1,18 +1,18 @@
-import { isAxiosError } from 'axios';
-import { ValidationError } from 'yup';
-import ParsingError from '../errors/ParsingError.js';
+import { isAxiosError } from 'axios'
+import { ValidationError } from 'yup'
+import ParsingError from '../errors/ParsingError.js'
 
 const classifyError = (error) => {
   if (error instanceof ValidationError) {
-    return error.errors[0];
+    return error.errors[0]
   }
   if (isAxiosError(error)) {
-    return 'networkError';
+    return 'networkError'
   }
   if (error instanceof ParsingError) {
-    return 'parsingError';
+    return 'parsingError'
   }
-  return 'unknownError';
-};
+  return 'unknownError'
+}
 
-export default classifyError;
+export default classifyError

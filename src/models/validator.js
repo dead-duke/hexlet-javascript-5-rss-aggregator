@@ -1,6 +1,6 @@
-import { string } from 'yup';
+import { string } from 'yup'
 
-const urlSchema = (channelsUrls) =>
-  string().required('rssFieldRequired').url('rssUrlMustBeValid').notOneOf(channelsUrls, 'rssAlreadyAdded');
+const urlSchema = channelsUrls =>
+  string().required('rssFieldRequired').url('rssUrlMustBeValid').notOneOf(channelsUrls, 'rssAlreadyAdded')
 
-export default urlSchema;
+export default urlSchema

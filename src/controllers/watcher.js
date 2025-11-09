@@ -1,4 +1,4 @@
-import onChange from 'on-change';
+import onChange from 'on-change'
 import {
   renderFormControls,
   renderFeedbackMessage,
@@ -6,36 +6,37 @@ import {
   renderNewPosts,
   fillModalContent,
   renderViewedPost,
-} from '../views/render.js';
+} from '../views/render.js'
 
 const watcher = (state, elements, bootstrapModal) => {
   const watchedState = onChange(state, (path, value) => {
     if (path === 'rssForm.state') {
-      renderFormControls(elements.input, elements.submitButton, value);
+      renderFormControls(elements.input, elements.submitButton, value)
     }
     if (path === 'rssForm.error') {
-      renderFeedbackMessage(elements.feedback, value);
+      renderFeedbackMessage(elements.feedback, value)
     }
     if (path === 'channels') {
-      renderPosts(elements.postsContainer, elements.feedsContainer, ...value);
+      renderPosts(elements.postsContainer, elements.feedsContainer, ...value)
     }
     if (path.endsWith('newPosts')) {
-      renderNewPosts(elements.postsContainer, value);
+      renderNewPosts(elements.postsContainer, value)
     }
     if (path === 'ui.lastMarkedPostId') {
-      renderViewedPost(value);
+      renderViewedPost(value)
     }
     if (path === 'ui.modal') {
       if (value.isOpen) {
-        fillModalContent(elements.modal, value);
-        bootstrapModal.show();
-      } else {
-        bootstrapModal.hide();
+        fillModalContent(elements.modal, value)
+        bootstrapModal.show()
+      }
+      else {
+        bootstrapModal.hide()
       }
     }
-  });
+  })
 
-  return watchedState;
-};
+  return watchedState
+}
 
-export default watcher;
+export default watcher

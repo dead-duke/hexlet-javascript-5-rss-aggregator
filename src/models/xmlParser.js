@@ -1,27 +1,27 @@
-import ParsingError from '../errors/ParsingError.js';
-import generatePostId from '../utils/idGenerator.js';
+import ParsingError from '../errors/ParsingError.js'
+import generatePostId from '../utils/idGenerator.js'
 
 const xmlParser = (xml) => {
-  const parser = new DOMParser();
-  const xmlDomTree = parser.parseFromString(xml, 'application/xml');
+  const parser = new DOMParser()
+  const xmlDomTree = parser.parseFromString(xml, 'application/xml')
 
-  const parseError = !xmlDomTree.querySelector('rss');
+  const parseError = !xmlDomTree.querySelector('rss')
   if (parseError) {
-    throw new ParsingError();
+    throw new ParsingError()
   }
 
-  const title = xmlDomTree.querySelector('channel>title').textContent;
-  const description = xmlDomTree.querySelector('channel>description').textContent;
+  const title = xmlDomTree.querySelector('channel>title').textContent
+  const description = xmlDomTree.querySelector('channel>description').textContent
   const posts = Array.from(xmlDomTree.querySelectorAll('item'))
     .map((item) => {
-      const title = item.querySelector('title').textContent;
-      const description = item.querySelector('description').textContent;
-      const link = item.querySelector('link').textContent;
-      const pubDate = item.querySelector('pubDate')?.textContent || Date.now();
-      const id = generatePostId(link, pubDate);
-      return { id, title, description, link };
+      const title = item.querySelector('title').textContent
+      const description = item.querySelector('description').textContent
+      const link = item.querySelector('link').textContent
+      const pubDate = item.querySelector('pubDate')?.textContent || Date.now()
+      const id = generatePostId(link, pubDate)
+      return { id, title, description, link }
     })
-    .reverse();
+    .reverse()
 
   return {
     feed: {
@@ -30,7 +30,7 @@ const xmlParser = (xml) => {
     },
     posts,
     newPosts: [],
-  };
-};
+  }
+}
 
-export default xmlParser;
+export default xmlParser
