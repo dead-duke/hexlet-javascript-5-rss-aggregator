@@ -9,7 +9,7 @@ const updateRssPosts = (state, updateInterval) => {
   }
 
   Promise.allSettled(state.channels.map(fetchNewPosts))
-    .then(results => {
+    .then((results) => {
       for (const [index, result] of results.entries()) {
         if (result.status === 'fulfilled') {
           const newPosts = result.value
@@ -18,7 +18,7 @@ const updateRssPosts = (state, updateInterval) => {
             state.channels[index].posts.push(...newPosts)
             state.channels[index].newPosts.length = 0
           }
-        } 
+        }
         else {
           const channel = i18nextInstance.t('channel')
           const channelUrl = state.channels[index].url

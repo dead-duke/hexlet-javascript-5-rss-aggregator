@@ -2,7 +2,7 @@ import { isAxiosError } from 'axios'
 import { ValidationError } from 'yup'
 import ParsingError from '../errors/ParsingError.js'
 
-const classifyError = error => {
+const classifyError = (error) => {
   if (error instanceof ValidationError) {
     return error.errors[0]
   }

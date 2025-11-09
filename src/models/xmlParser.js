@@ -1,7 +1,7 @@
 import ParsingError from '../errors/ParsingError.js'
 import generatePostId from '../utils/idGenerator.js'
 
-const xmlParser = xml => {
+const xmlParser = (xml) => {
   const parser = new DOMParser()
   const xmlDomTree = parser.parseFromString(xml, 'application/xml')
 
@@ -13,7 +13,7 @@ const xmlParser = xml => {
   const title = xmlDomTree.querySelector('channel>title').textContent
   const description = xmlDomTree.querySelector('channel>description').textContent
   const posts = Array.from(xmlDomTree.querySelectorAll('item'))
-    .map(item => {
+    .map((item) => {
       const title = item.querySelector('title').textContent
       const description = item.querySelector('description').textContent
       const link = item.querySelector('link').textContent

@@ -40,7 +40,7 @@ const renderFeedbackMessage = (feedback, value) => {
   }
 }
 
-const createListContainer = containerTitle => {
+const createListContainer = (containerTitle) => {
   const card = document.createElement('div')
   card.classList.add('card', 'border-0')
 
@@ -132,7 +132,7 @@ const fillModalContent = (modal, modalData) => {
   modal.querySelector('.full-article').href = modalData.link
 }
 
-const renderViewedPost = postId => {
+const renderViewedPost = (postId) => {
   const post = document.querySelector(`[data-post-id="${postId}"]`)
   const link = post.querySelector('a')
   link.classList.remove('fw-bold')
